@@ -9,46 +9,16 @@ const knex = require('knex')({
     user : 'postgres',
     password : '85208520',
     database : 'face-detection-data'
-  }
+  	}
 });
-
-const database = {
-
-	users: [
-
-		{
-			id: 0,
-			name: 'Mahdi',
-			password: '8520',
-			email: 'mahdi@gmail.com',
-			entries: 0
-		},
-		{
-			id: 1,
-			name: 'Ali',
-			password: '9361',
-			email: 'ali@yahoo.com',
-			entries: 3
-		},
-		{
-			id: 2,
-			name: 'Hussein',
-			password: '254631',
-			email: "hussein@email.com",
-			entries: 10
-		}
-
-	]
-
-};
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/user', (req, res) => {
+app.get('/', (req, res) => {
 
-	res.json(database.users);
+	res.json("It's working");
 
 });
 
@@ -75,7 +45,7 @@ app.post('/register', (req, res) => {
 	if(name && email && password) {
 		knex.transaction(trx => {
 
-			trx.insert({
+			return trx.insert({
 				email,
 				hash
 			}).into('login').then(response => {
