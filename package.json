@@ -11,10 +11,9 @@
     "knex": "^0.15.2",
     "pg": "^7.4.3"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Zero developer",
   "license": "ISC"
 }
