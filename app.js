@@ -46,7 +46,7 @@ app.post('/register', (req, res) => {
 			return trx.insert({
 				email,
 				hash
-			}).into('login').then(response => {
+			}).into('logins').then(response => {
 
 				return trx.insert({
 					name,
@@ -71,7 +71,7 @@ app.post('/register', (req, res) => {
 app.post('/signin', (req, res) => {
 
 	const { email, password } = req.body;
-	knex.select('*').from('login').where({
+	knex.select('*').from('logins').where({
 		email
 	}).then(login => {
 
