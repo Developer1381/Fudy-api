@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 
-	res.json("It's working");
+	res.json("It\'s working");
 
 });
 
